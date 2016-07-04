@@ -29,6 +29,10 @@ class SubsiteSiteTreeURLSegmentField extends SiteTreeURLSegmentField {
 				return constant($subsiteurl) . $urlarray['path'];
 			}
 			
+			if(!(Subsite::currentSubsite() instanceof Subsite)) {
+				return $url;
+			}
+			
 			// if set in config settings
 			$currentDomain = Subsite::currentSubsite()->getPrimarySubsiteDomain();
 

@@ -1,0 +1,10 @@
+---
+Name: opsubsiteconfig
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+Injector:
+  LeftAndMainSubsites:
+    class: SubsiteLeftAndMainSubsites
+    

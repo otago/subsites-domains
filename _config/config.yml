@@ -1,0 +1,15 @@
+---
+Name: subsitedomains
+After:
+  - 'subsites/*'
+---
+Subsite:
+  extensions:
+    - SubsiteLinkExtension
+
+Injector:
+  SubsitesVirtualPage_Controller: OPSubsitesVirtualPage_Controller
+
+Injector:
+  SiteTreeURLSegmentField:
+    class: SubsiteSiteTreeURLSegmentField

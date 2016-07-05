@@ -43,6 +43,10 @@ class SubsiteSiteTreeURLSegmentField extends SiteTreeURLSegmentField {
 				$currentDomain = Subsite::currentSubsite()->DevDomainID ? Subsite::currentSubsite()->DevDomain() : $currentDomain;
 			}
 
+			if(!$currentDomain) {
+				return $url;
+			}
+			
 			return $currentDomain->getFullProtocol() . $currentDomain->Domain . $urlarray['path'];
 		}
 		return $url;

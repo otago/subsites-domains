@@ -7,9 +7,9 @@ Subsite:
   extensions:
     - SubsiteLinkExtension
 
-Injector:
-  SubsitesVirtualPage_Controller: OPSubsitesVirtualPage_Controller
 
 Injector:
+  SubsitesVirtualPage_Controller: 
+    class: OPSubsitesVirtualPage_Controller
   SiteTreeURLSegmentField:
     class: SubsiteSiteTreeURLSegmentField

@@ -45,14 +45,6 @@ $_FILE_TO_URL_MAPPING['C:\\apache\\htdocs\\op'] = DEV_SUBSITE_0;
 // ... etc.
 ```
 
-Optional: in your _config.php file
-
-```
-Object::add_extension('HtmlEditorField_Toolbar', 'HtmlEditorField_ToolbarExtension');
-ShortcodeParser::get('default')->register('subsite_link', array('HtmlEditorField_ToolbarExtension', 'link_shortcode_handler'));
-```
-
-This will enable the subsite linking to work in the CMS.
 
 **Bypass the stage while accessing a subsite**
 

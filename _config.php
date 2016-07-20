@@ -1,6 +1,6 @@
 <?php
 
-define('SUBSITE_DOMAIN_DIR', ltrim(Director::makeRelative(realpath(__DIR__)), DIRECTORY_SEPARATOR));
+define('SUBSITES_DOMAINS_DIR', ltrim(Director::makeRelative(realpath(__DIR__)), DIRECTORY_SEPARATOR));
 
 
 Object::add_extension('HtmlEditorField_Toolbar', 'HtmlEditorField_ToolbarExtension');

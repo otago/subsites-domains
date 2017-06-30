@@ -11,4 +11,11 @@ class OPSubsitesVirtualPage_Controller extends SubsitesVirtualPage_Controller {
 		return $controller->getViewer($action);
 	}
 
+	public function allowedActions($limitToClass = null) {
+		$classname = get_class(ModelAsController::controller_for($this->CopyContentFrom()));
+		$extraactions = Config::inst()->get(
+				$classname, 'allowed_actions', Config::UNINHERITED | Config::EXCLUDE_EXTRA_SOURCES
+		);
+		return array_merge(parent::allowedActions($limitToClass), $extraactions);
+	}
 }

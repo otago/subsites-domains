@@ -1,0 +1,6 @@
+mappings:
+  HtmlEditorField_ToolbarExtension: OP\ModalControllerExtension
+  SubsiteLeftAndMainSubsites: OP\SubsiteLeftAndMainSubsites
+  SubsiteLinkExtension: OP\SubsiteLinkExtension
+  SubsiteSiteTreeURLSegmentField: OP\SubsiteSiteTreeURLSegmentField
+  OPSubsitesVirtualPage_Controller: OP\SubsitesVirtualPageController

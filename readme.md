@@ -30,19 +30,16 @@ developers have different preferences for their domain naming conventions, this
 lets them set it to what they want. All while not disturbing the main dev and test
 site settings. 
 
-In *_ss_environment.php*:
+In *.env*:
 
-```php
-define('DEV_SUBSITE_0', 'https://maindev.company.domain');
-define('DEV_SUBSITE_1', 'http://local.project1');
-define('DEV_SUBSITE_2', 'http://local.project2');
-define('DEV_SUBSITE_3', 'http://local.project3');
+```
 
-// instead of setting it different places, you can just do it once
-global $_FILE_TO_URL_MAPPING;
-$_FILE_TO_URL_MAPPING['C:\\apache\\htdocs\\op'] = DEV_SUBSITE_0;
+DEV_SUBSITE_0=https://maindev.company.domain
+DEV_SUBSITE_1=http://local.project1
+DEV_SUBSITE_2=http://local.project2
+DEV_SUBSITE_3=http://local.project3
 
-// ... etc.
+
 ```
 
 

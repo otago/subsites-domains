@@ -3,13 +3,15 @@ Name: subsitedomains
 After:
   - 'subsites/*'
 ---
-Subsite:
+SilverStripe\Subsites\Model\Subsite:
   extensions:
-    - SubsiteLinkExtension
+    - OP\SubsiteLinkExtension
 
 
-Injector:
-  SubsitesVirtualPage_Controller: 
-    class: OPSubsitesVirtualPage_Controller
-  SiteTreeURLSegmentField:
-    class: SubsiteSiteTreeURLSegmentField
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\CMS\Forms\SiteTreeURLSegmentField:
+    class: OP\SubsiteSiteTreeURLSegmentField
+    
+SilverStripe\Admin\ModalController:
+  extensions:
+    - OP\ModalControllerExtension

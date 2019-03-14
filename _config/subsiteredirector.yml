@@ -1,10 +1,4 @@
----
-Name: opsubsiteconfig
-After:
-  - 'framework/*'
-  - 'cms/*'
----
-Injector:
-  LeftAndMainSubsites:
-    class: SubsiteLeftAndMainSubsites
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Subsites\Extensions\LeftAndMainSubsites:
+    class: OP\SubsiteLeftAndMainSubsites
     

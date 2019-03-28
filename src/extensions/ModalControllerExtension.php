@@ -9,6 +9,9 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Extension;
 use SilverStripe\Core\Environment;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Control\Controller;
+use SilverStripe\Subsites\Forms\SubsitesTreeDropdownField;
 
 //  HTMLEditorField_Toolbar was replaced With SilverStripe\Admin\ModalController in SS4.0
 class ModalControllerExtension extends Extension {

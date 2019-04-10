@@ -12,6 +12,9 @@ use SilverStripe\Core\Environment;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Control\Controller;
 use SilverStripe\Subsites\Forms\SubsitesTreeDropdownField;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ErrorPage\ErrorPage;
+use SilverStripe\Core\Convert;
 
 //  HTMLEditorField_Toolbar was replaced With SilverStripe\Admin\ModalController in SS4.0
 class ModalControllerExtension extends Extension {
@@ -76,12 +79,12 @@ class ModalControllerExtension extends Extension {
         $page = null;
 
         if ($id) {
-            $page = DataObject::get_by_id('SiteTree', $id);   // Get the current page by ID.
+            $page = DataObject::get_by_id(SiteTree::class, $id);   // Get the current page by ID.
             if (!$page) {
-                $page = Versioned::get_latest_version('SiteTree', $id); // Attempt link to old version.
+                $page = Versioned::get_latest_version(SiteTree::class, $id); // Attempt link to old version.
             }
         } else {
-            $page = DataObject::get_one('ErrorPage', '"ErrorPage"."ErrorCode" = \'404\''); // Link to 404 page.
+            $page = DataObject::get_one(ErrorPage::class, '"ErrorPage"."ErrorCode" = \'404\''); // Link to 404 page.
         }
 
         if (!$page) {
@@ -111,12 +114,13 @@ class ModalControllerExtension extends Extension {
                 }
             }
         }
-
-
+        if(!$page->Parent()) {
+            return "";
+        }
         $link = Convert::raw2att($page->Link());
 
         if ($content) {
-            return sprintf('<a href="%s">%s</a>', $currenturl . $link, $parser->parse($content));
+            return sprintf('<a href="%s" class="op__link">%s</a>', $currenturl . $link, $parser->parse($content));
         } else {
             return $currenturl . $link;
         }

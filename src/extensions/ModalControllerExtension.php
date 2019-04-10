@@ -68,16 +68,27 @@ class ModalControllerExtension extends Extension {
      * @return string links
      */
     static public function link_shortcode_handler($arguments, $content = null, $parser = null) {
-        if (!isset($arguments['id']))
+        if (!isset($arguments['id'])) {
             return;
+        }
         $argumentarray = explode('-', $arguments['id']);
 
-        if (count($argumentarray) != 2)
+        if(count($argumentarray) === 1) {
+            $page = DataObject::get_by_id(SiteTree::class, $argumentarray[0]);
+            if(!$page || !$page->Parent()) {
+                return;
+            }
+            
+            return SiteTree::link_shortcode_handler($arguments, $content, $parser);
+        }
+        
+        if (count($argumentarray) != 2) {
             return;
+        }
         $subsiteid = $argumentarray[0];
         $id = $argumentarray[1];
         $page = null;
-
+        
         if ($id) {
             $page = DataObject::get_by_id(SiteTree::class, $id);   // Get the current page by ID.
             if (!$page) {

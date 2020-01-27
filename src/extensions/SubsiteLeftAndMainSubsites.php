@@ -37,6 +37,7 @@ class SubsiteLeftAndMainSubsites extends LeftAndMainSubsites {
                 }
             }
         }
+        if (Controller::curr()->redirectedTo()) return null;
         return parent::onBeforeInit();
     }
 

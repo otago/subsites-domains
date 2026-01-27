@@ -20,7 +20,7 @@ class SubsiteLeftAndMainSubsites extends LeftAndMainSubsites {
      * @return redirect location
      */
     public function onBeforeInit() {
-        if (!$this->owner->canAccess()) {
+        if (!$this->canAccess()) {
             global $_FILE_TO_URL_MAPPING;
             // redirect to domain.com/admin etc if there's the base path is set & you're in a subsite
             if (SubsiteState::singleton()->getSubsiteId()  != 0 && isset($_FILE_TO_URL_MAPPING[BASE_PATH])) {

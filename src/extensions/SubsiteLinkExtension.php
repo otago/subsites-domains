@@ -7,11 +7,11 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Control\Director;
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Core\Environment;
 
-class SubsiteLinkExtension extends DataExtension {
+class SubsiteLinkExtension extends Extension {
 
     private static $has_one = [
         'TestDomain' => SubsiteDomain::class,
